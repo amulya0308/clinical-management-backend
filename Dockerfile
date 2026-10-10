@@ -4,4 +4,4 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","target/clinical-management-system-1.0.0.jar"]
+ENTRYPOINT ["sh","-c","java -Dserver.port=${PORT:-8080} -jar target/clinical-management-system-1.0.0.jar"]
